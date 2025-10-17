@@ -40,6 +40,7 @@ def mirror(x, y, angle, length, color):
     t.goto(x, y)
     mirrors.append((x, y, angle, length))
     s.update()
+    #광원 그리기
     t.goto(0,0)
     t.color("red")
     t.dot(12)
@@ -73,7 +74,7 @@ ray.down()
 def reflect(heading, mirror_angle):
     return (2 * mirror_angle - heading) % 360
 
-# 최종
+# 광선 방출
 while True:
     ray.forward(3)
     x, y = ray.pos()
