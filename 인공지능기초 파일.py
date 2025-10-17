@@ -71,8 +71,8 @@ ray.setheading(random.uniform(0, 360))
 ray.down()
 
 # 반사
-def reflect(heading, mirror_angle):
-    return (2 * mirror_angle - heading) % 360
+def reflect(inc_ang, mirror_ang):
+    return (2 * mirror_ang - inc_ang) % 360
 
 # 광선 방출
 while True:
@@ -85,8 +85,8 @@ while True:
         dy = y - my
         dist = abs(dx * math.sin(math.radians(ang)) - dy * math.cos(math.radians(ang)))
         if dist < 3 and abs(dx * math.cos(math.radians(ang)) + dy * math.sin(math.radians(ang))) < length / 2:
-            new_heading = reflect(ray.heading(), ang)
-            ray.setheading(new_heading)
+            ref_ang = reflect(ray.heading(), ang)
+            ray.setheading(ref_ang)
             break
     s.update()
     time.sleep(0.004)
